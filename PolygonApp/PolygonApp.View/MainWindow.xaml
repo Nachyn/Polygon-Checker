@@ -1,0 +1,51 @@
+﻿<Window x:Class="PolygonApp.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PolygonApp.View"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="ToolWindow"
+        Title="PolygonApp"
+        Height="400"
+        Width="650"
+        MinWidth="400"
+        MinHeight="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.8*" />
+            <ColumnDefinition Width="0.2*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid MouseDown="MainPolygon_MouseDown"
+              MouseMove="MainPolygon_MouseMove"
+              Background="Transparent">
+            <Polygon x:Name="MainPolygon"
+                     Fill="LightGreen"
+                     StrokeThickness="1"
+                     Stroke="Black" />
+            <TextBlock Text="Click me!"
+                       x:Name="MainPolygonAlert"
+                       FontSize="30"
+                       FontWeight="Light"
+                       TextAlignment="Center"
+                       VerticalAlignment="Center" />
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Border Background="IndianRed"
+                    x:Name="BelongStatus" />
+            <Button Grid.Row="1"
+                    Content="Clear"
+                    FontSize="20"
+                    BorderThickness="0"
+                    FontWeight="Light"
+                    Click="ClearButton_Click" />
+        </Grid>
+    </Grid>
+</Window>
